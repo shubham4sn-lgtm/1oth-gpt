@@ -1,21 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cards</title>
-    <link rel="stylesheet" href="stylt.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>StudyMate — Class 10 Study Assistant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="main">
-        <div id="card4" class="card"><img src="https://images.unsplash.com/photo-1609372332255-611485350f25?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt=""></div>
-        <div id="card3" class="card">
-            <img src="https://images.unsplash.com/photo-1637158881671-f6e4331887e5?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt=""></div>
-         <div id="card2"class="card">
-            <img src="https://images.unsplash.com/photo-1643725173053-ed68676f1878?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt=""></div>
-        <div id="card" class="card">
-            <img src="https://images.unsplash.com/photo-1542779283-429940ce8336?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="">
-        </div>
-        </div>
+<header>
+  <div class="nav">
+    <a class="brand" href="#home"><b><i class="fa-solid fa-graduation-cap"></i></b><span><strong>StudyMate</strong><small>Class 10 Study Assistant</small></span></a>
+    <button id="menu" class="icon" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+    <nav id="nav"><a class="active" href="#home">Home</a><a href="#subjects">Subjects</a><a href="#quiz">Quiz</a><a href="#ask">Ask Question</a></nav>
+    <button id="theme" class="icon" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+  </div>
+</header>
+
+<main id="home">
+<section class="hero wrap">
+  <div>
+    <span class="eyebrow">CLASS 10 • SMART STUDY</span>
+    <h1>Study Smarter.<br><span>Learn Better.</span></h1>
+    <p>Your simple study companion for questions, subjects, revision and practice.</p>
+    <form id="searchForm" class="search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input id="question" aria-label="Ask a question" placeholder="Ask a question from your Class 10 syllabus..." maxlength="300">
+      <button id="voice" type="button" class="voice" aria-label="Voice search"><i class="fa-solid fa-microphone"></i></button>
+      <button class="primary" type="submit">Search <i class="fa-solid fa-arrow-right"></i></button>
+    </form>
+    <div class="chips"><span>Try:</span>
+      <button type="button" data-q="What is photosynthesis?">Photosynthesis</button>
+      <button type="button" data-q="What is the quadratic formula?">Quadratic Formula</button>
+      <button type="button" data-q="What is democracy?">Democracy</button>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-main"><span class="eyebrow">STUDY PROGRESS</span><div class="ring"><b>72%</b></div><h3>Keep your momentum</h3><p>Ask, revise and test yourself every day.</p></div>
+    <div class="stat"><b id="hq">0</b><span>Questions Asked</span></div>
+    <div class="stat"><b id="hz">0</b><span>Quizzes Completed</span></div>
+  </div>
+</section>
+
+<section id="ask" class="wrap section">
+  <div class="heading"><div><span class="eyebrow">STUDY NOTES</span><h2>Question & Answer</h2></div><span id="subjectName" class="pill">All Subjects</span></div>
+  <div id="answer" class="answer"><div class="empty"><i class="fa-solid fa-lightbulb"></i><h3>Ask something from your syllabus</h3><p>Your answer, explanation, example and key point will appear here.</p></div></div>
+</section>
+
+<section id="subjects" class="wrap section">
+  <div class="heading"><div><span class="eyebrow">EXPLORE</span><h2>Choose a subject</h2></div><p>Click a subject to see example questions.</p></div>
+  <div id="subjectsGrid" class="subjects"></div>
+</section>
+
+<section class="wrap section">
+  <div class="heading"><div><span class="eyebrow">YOUR STUDY SPACE</span><h2>Practice & progress</h2></div></div>
+  <div class="tools">
+    <article class="tool"><i class="fa-solid fa-clipboard-question"></i><span class="eyebrow">PRACTICE</span><h3>Daily Quiz</h3><p>Random questions with instant feedback.</p><a href="#quiz">Take a quiz →</a></article>
+    <article class="tool"><i class="fa-solid fa-clock-rotate-left teal"></i><span class="eyebrow">RECENT</span><h3>Recent Questions</h3><div id="recent"><small>No questions yet.</small></div><button id="clear" class="small">Clear History</button></article>
+    <article class="tool"><i class="fa-solid fa-chart-simple orange"></i><span class="eyebrow">STATISTICS</span><h3>Your Progress</h3><div class="stats"><div><b id="sq">0</b><small>Questions</small></div><div><b id="sz">0</b><small>Quizzes</small></div><div><b id="sb">0%</b><small>Best Score</small></div><div><b id="ss">0</b><small>Streak</small></div></div></article>
+  </div>
+</section>
+
+<section id="quiz" class="wrap section">
+  <div class="heading"><div><span class="eyebrow">PRACTICE TEST</span><h2>Challenge yourself</h2></div></div>
+  <div class="quiz">
+    <div class="quizbar"><div id="filters"></div><button id="start" class="primary"><i class="fa-solid fa-play"></i> Start Quiz</button></div>
+    <div id="intro" class="intro"><i class="fa-solid fa-pen-to-square"></i><h3>Ready for a quick test?</h3><p>Every quiz contains 10 randomly selected questions.</p></div>
+    <div id="play" class="hidden">
+      <div class="qmeta"><span id="counter"></span><b id="liveScore"></b></div><div class="bar"><i id="bar"></i></div>
+      <span id="qsubject" class="pill"></span><h3 id="qtext"></h3><div id="options" class="options"></div>
+      <div id="feedback" class="feedback"></div>
+      <div class="actions"><button id="submit" class="primary">Submit Answer</button><button id="next" class="secondary hidden">Next Question →</button></div>
+    </div>
+    <div id="result" class="result hidden"><div>🏆</div><span class="eyebrow">QUIZ COMPLETED</span><h3>Nice work!</h3><strong id="score"></strong><b id="percent"></b><p>Correct: <span id="correct"></span> • Wrong: <span id="wrong"></span></p><p id="message"></p><button id="retry" class="primary">↻ Retry Quiz</button></div>
+  </div>
+</section>
+</main>
+<footer><b><i class="fa-solid fa-graduation-cap"></i> StudyMate</b><p>Made for Class 10 students • Learn consistently, improve confidently.</p></footer>
+<div id="toast" class="toast"></div>
+<script src="script.js"></script>
 </body>
 </html>
